@@ -44,4 +44,4 @@ pub use throttle::Throttle;
 #[cfg(feature = "trace_adaptor")]
 pub use trace::Trace;
 
-pub use parse_mode::DefaultParseMode;
+pub use parse_mode::{DefaultParseMode, DefaultParseModeRequest};
