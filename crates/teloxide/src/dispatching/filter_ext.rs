@@ -121,6 +121,8 @@ define_message_ext! {
     (filter_video_chat_ended, Message::video_chat_ended),
     (filter_video_chat_participants_invited, Message::video_chat_participants_invited),
     (filter_web_app_data, Message::web_app_data),
+    (filter_shared_users, Message::shared_users),
+    (filter_shared_chat, Message::shared_chat),
 }
 
 macro_rules! define_update_ext {

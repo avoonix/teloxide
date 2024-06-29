@@ -32,6 +32,13 @@ pub struct KeyboardButtonRequestChat {
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub chat_has_username: Option<bool>,
 
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub request_title: Option<bool>,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub request_username: Option<bool>,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub request_photo: Option<bool>,
+
     /// Pass `true` to request a chat owned by the user. Otherwise, no
     /// additional restrictions are applied.
     #[serde(default, skip_serializing_if = "Option::is_none")]
@@ -67,7 +74,26 @@ impl KeyboardButtonRequestChat {
             user_administrator_rights: None,
             bot_administrator_rights: None,
             bot_is_member: false,
+            request_title: None,
+            request_username: None,
+            request_photo: None,
         }
+    }
+
+    #[must_use]
+    pub fn request_title(mut self, value: bool) -> Self {
+        self.request_title = Some(value);
+        self
+    }
+    #[must_use]
+    pub fn request_username(mut self, value: bool) -> Self {
+        self.request_username = Some(value);
+        self
+    }
+    #[must_use]
+    pub fn request_photo(mut self, value: bool) -> Self {
+        self.request_photo = Some(value);
+        self
     }
 
     /// Setter for `chat_is_forum` field.

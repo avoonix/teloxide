@@ -1,7 +1,7 @@
 use serde::{de::Error, Deserialize, Deserializer, Serialize, Serializer};
 
 use crate::types::{
-    KeyboardButtonPollType, KeyboardButtonRequestChat, KeyboardButtonRequestUser, True, WebAppInfo,
+    KeyboardButtonPollType, KeyboardButtonRequestChat, KeyboardButtonRequestUsers, True, WebAppInfo,
 };
 
 /// This object represents one button of the reply keyboard.
@@ -71,7 +71,7 @@ pub enum ButtonRequest {
     /// If this variant is used, pressing the button will open a list of
     /// suitable users. Tapping on any user will send their identifier to the
     /// bot in a “user_shared” service message.
-    RequestUser(KeyboardButtonRequestUser),
+    RequestUser(KeyboardButtonRequestUsers),
 
     /// If this variant is used, the user will be asked to create a poll and
     /// send it to the bot when the button is pressed.
@@ -113,7 +113,7 @@ struct RawRequest {
     /// Tapping on any user will send their identifier to the bot in a
     /// “user_shared” service message. Available in private chats only.
     #[serde(rename = "request_user")]
-    user: Option<KeyboardButtonRequestUser>,
+    user: Option<KeyboardButtonRequestUsers>,
 
     /// If specified, the user will be asked to create a poll and
     /// send it to the bot when the button is pressed. Available in private

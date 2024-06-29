@@ -2,6 +2,8 @@ use serde::{Deserialize, Serialize};
 
 use crate::types::ChatId;
 
+use super::PhotoSize;
+
 /// Information about the chat whose identifier was shared with the bot using a
 /// [`KeyboardButtonRequestChat`] button.
 ///
@@ -12,4 +14,7 @@ pub struct ChatShared {
     pub request_id: i32,
     /// Identifier of the shared chat.
     pub chat_id: ChatId,
+    pub title: Option<String>,
+    pub username: Option<String>,
+    pub photo: Option<Vec<PhotoSize>>,
 }
