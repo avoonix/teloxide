@@ -16,6 +16,9 @@ pub struct StickerSet {
     /// Sticker set title.
     pub title: String,
 
+    /// Sticker set id, i64 converted to string
+    pub __custom__id: String,
+
     /// Sticker type shared by all stickers in this set.
     #[serde(flatten)]
     pub kind: StickerType,
